@@ -1,4 +1,4 @@
-config:
+all:
 	mkdir -p ~/Music
 	mkdir -p ~/Music/playlists
 	mkdir -p ~/Tools
@@ -8,8 +8,9 @@ config:
 	curl -s -L https://get.oh-my.fish | fish
 	fish -c "omf install lambda"
 	git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+	emacs --batch -l ~/.emacs.d/init.el
 
-update:
+pull:
 	cp ~/.spacemacs home/spacemacs | echo "warning: spacemacs config missing update skipped..."
 	cp ~/.ncmpcpp/config home/ncmpcpp/config | echo "warning: ncmpcpp config missing update skipped..."
 	cp ~/.mpd/mpd.conf home/mpd/mpd.conf | echo "warning mpd config missing skipping..."
@@ -17,3 +18,6 @@ update:
 
 install:
 	chsh -s /bin/fish
+
+uninstall:
+	chsh -s /bin/bash
