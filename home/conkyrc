@@ -11,6 +11,7 @@ conky.config = {
     draw_outline = false,
     draw_shades = false,
     gap_x = 5,
+    use_xft = true,
     gap_y = 50,
     minimum_height = 5,
     minimum_width = 5,
@@ -24,10 +25,11 @@ conky.config = {
     own_window_class = 'Conky',
     own_window_type = 'override',
     own_window_argb_visual = true,
-    own_window_transparent = true,
+    own_window_argb_value = 150,
+    own_window_transparent = false,
     own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
     stippled_borders = 0,
-    update_interval = 1,
+    update_interval = 5,
     uppercase = false,
     use_spacer = 'none',
     show_graph_scale = false,
@@ -35,34 +37,58 @@ conky.config = {
 }
 
 conky.text = [[
-WEATHER----------
+${color #FFFFFF}${font DejaVu Sans Mono:size=9:weight=bold}
+Weather:
+${font DejaVu Sans Mono:size=7}
     ${execi 1000 curl -s "wttr.in/?0T"}
-CPU---------------
-    ${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq} ${freq_g cpu0}Ghz ${acpitemp}°C
-    core_0: ${cpu cpu0}% ${freq_g cpu0}Ghz
-    ${cpugraph cpu0 15}
-    core_1: ${cpu cpu1}% ${freq_g cpu1}Ghz
+${font DejaVu Sans Mono:size=9:weight=bold}
+Machine:
+${font DejaVu Sans Mono:size=7}
+    kernel: ${kernel}
+    shell: ${execi 1000 $SHELL -v}
+    uptime: ${uptime_short}
+${font DejaVu Sans Mono:size=9:weight=bold}
+CPU:
+${font DejaVu Sans Mono:size=7}
+    model:${alignr} ${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq}
+    temp:${alignr} ${acpitemp}°C
+    core_0:${alignr} ${cpu cpu1}% ${freq_g cpu0}Ghz
     ${cpugraph cpu1 15}
-    core_2: ${cpu cpu2}% ${freq_g cpu2}Ghz
+    core_1: ${alignr}${cpu cpu2}% ${freq_g cpu1}Ghz
     ${cpugraph cpu2 15}
-    core_3: ${cpu cpu3}% ${freq_g cpu3}Ghz
+    core_2: ${alignr}${cpu cpu3}% ${freq_g cpu2}Ghz
     ${cpugraph cpu3 15}
-    core_4: ${cpu cpu4}% ${freq_g cpu4}Ghz
+    core_3: ${alignr}${cpu cpu4}% ${freq_g cpu3}Ghz
     ${cpugraph cpu4 15}
-    core_5: ${cpu cpu5}% ${freq_g cpu5}Ghz
+    core_4: ${alignr}${cpu cpu5}% ${freq_g cpu4}Ghz
     ${cpugraph cpu5 15}
-MEMORY------------
-    used : ${mem} ${memperc}%
-    free : ${memfree}
-    total: ${memmax}
+    core_5: ${alignr}${cpu cpu6}% ${freq_g cpu5}Ghz
+    ${cpugraph cpu6 15}
+    ${top name 1} ${alignr}proc_0
+    ${top name 2} ${alignr}proc_1
+    ${top name 3} ${alignr}proc_2
+${font DejaVu Sans Mono:size=9:weight=bold}
+Memory
+${font DejaVu Sans Mono:size=7}
+    used:${alignr}${mem}
+    free:${alignr}${memfree}
+    total:${alignr}${memmax}
     ${memgraph 15}
-GRAPHICS---------
+    ${top_mem name 1}${alignr}proc_0
+    ${top_mem name 2}${alignr}proc_1
+    ${top_mem name 3}${alignr}proc_2
+${font DejaVu Sans Mono:size=9:weight=bold}
+Graphics:
+${font DejaVu Sans Mono:size=7}
+    ${execi 1000 nvidia-smi --query-gpu=name --format=csv,noheader}
     gpu freq: ${nvidia gpufreq}
     threshold: ${nvidia threshold}°C
     ambient: ${nvidia ambient}°C
     mem freq: ${nvidia memfreq}
     image quality: ${nvidia imagequality}
-Network:----------
+${font DejaVu Sans Mono:size=9:weight=bold}
+Network:
+${font DejaVu Sans Mono:size=7}
     Local : ${addr enp3s0}
     Remote: ${execi 3600 curl -s ifconfig.co | sed -e 's/[^[:digit:]\|.]//g'}
 ]]
