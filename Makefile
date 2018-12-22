@@ -65,6 +65,7 @@ pull:
 	@cp ~/.local/share/applications/mimeapps.list home/local/share/applications/mimeapps.list || echo "warning: mimeapps missing update skipped..."
 	@cp -r ~/.config/i3/. home/config/i3/ || echo "warning: i3 missing update skipped..."
 	@cp ~/.config/youtube-viewer/youtube-viewer.conf home/config/youtube-viewer/youtube-viewer.conf || echo "warning: youtube-viewer missing update skipped..."
+	@cp ~/.xinitrc home/xinitrc || echo "warning: xinitrc missing skipping..."
 
 uninstall: uninstall-emacs uninstall-vifm uninstall-fish uninstall-youtube-viewer uninstall-x
 
