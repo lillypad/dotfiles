@@ -16,7 +16,7 @@
 .PHONY: install
 .PHONY: uninstall
 
-install: dirs install-oh-my-fish install-vifm install-emacs install-i3 install-youtube-viewer
+install: dirs install-x install-oh-my-fish install-vifm install-emacs install-i3 install-youtube-viewer
 
 dirs:
 	mkdir -p ~/Music/ \
@@ -25,6 +25,9 @@ dirs:
 		~/Downloads/ \
 		~/Docs/ \
 		~/Photos
+
+install-x:
+	cp home/xinitrc ~/.xinitrc
 
 install-oh-my-fish:
 	cp home/config/fish/config.fish ~/.config/fish/config.fish
@@ -63,7 +66,7 @@ pull:
 	@cp -r ~/.config/i3/. home/config/i3/ || echo "warning: i3 missing update skipped..."
 	@cp ~/.config/youtube-viewer/youtube-viewer.conf home/config/youtube-viewer/youtube-viewer.conf || echo "warning: youtube-viewer missing update skipped..."
 
-uninstall: uninstall-emacs uninstall-vifm uninstall-fish
+uninstall: uninstall-emacs uninstall-vifm uninstall-fish uninstall-youtube-viewer uninstall-x
 
 uninstall-emacs:
 	rm -rf ~/.emacs.d/
@@ -77,3 +80,6 @@ uninstall-fish:
 
 uninstall-youtube-viewer:
 	rm -f ~/.config/youtube-viewer/youtube-viewer.conf
+
+uninstall-x:
+	rm -f ~/.xinitrc
