@@ -16,7 +16,7 @@
 .PHONY: install
 .PHONY: uninstall
 
-install: dirs install-x install-oh-my-fish install-vifm install-emacs install-i3 install-youtube-viewer
+install: dirs install-x install-oh-my-fish install-vifm install-emacs install-i3 install-youtube-viewer install-conky
 
 dirs:
 	mkdir -p ~/Music/ \
@@ -50,6 +50,9 @@ install-i3:
 install-youtube-viewer:
 	cp home/config/youtube-viewer/youtube-viewer.conf ~/.config/youtube-viewer/youtube-viewer.conf
 
+install-conky:
+	cp home/conkyrc ~/.conkyrc
+
 install-fonts:
 	git clone https://github.com/powerline/fonts.git /tmp/powerline-fonts/
 	cd /tmp/powerline-fonts/ && \
@@ -66,8 +69,9 @@ pull:
 	@cp -r ~/.config/i3/. home/config/i3/ || echo "warning: i3 missing update skipped..."
 	@cp ~/.config/youtube-viewer/youtube-viewer.conf home/config/youtube-viewer/youtube-viewer.conf || echo "warning: youtube-viewer missing update skipped..."
 	@cp ~/.xinitrc home/xinitrc || echo "warning: xinitrc missing skipping..."
+	@cp ~/.conkyrc home/conkyrc
 
-uninstall: uninstall-emacs uninstall-vifm uninstall-fish uninstall-youtube-viewer uninstall-x
+uninstall: uninstall-emacs uninstall-vifm uninstall-fish uninstall-youtube-viewer uninstall-x uninstall-conky
 
 uninstall-emacs:
 	rm -rf ~/.emacs.d/
@@ -84,3 +88,6 @@ uninstall-youtube-viewer:
 
 uninstall-x:
 	rm -f ~/.xinitrc
+
+uninstall-conky:
+	rm -f ~/.conkyrc

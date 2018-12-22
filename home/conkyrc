@@ -1,0 +1,68 @@
+conky.config = {
+    alignment = 'top_right',
+    background = true,
+    border_width = 0.5,
+    cpu_avg_samples = 4,
+    default_color = 'white',
+    default_outline_color = 'white',
+    default_shade_color = 'black',
+    draw_borders = true,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    gap_x = 5,
+    gap_y = 50,
+    minimum_height = 5,
+    minimum_width = 5,
+    net_avg_samples = 2,
+    double_buffer = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    own_window_colour = '000000',
+    own_window_class = 'Conky',
+    own_window_type = 'override',
+    own_window_argb_visual = true,
+    own_window_transparent = true,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    stippled_borders = 0,
+    update_interval = 1,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    show_graph_range = false
+}
+
+conky.text = [[
+WEATHER----------
+    ${execi 1000 curl -s "wttr.in/?0T"}
+CPU---------------
+    ${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq} ${freq_g cpu0}Ghz ${acpitemp}°C
+    core_0: ${cpu cpu0}% ${freq_g cpu0}Ghz
+    ${cpugraph cpu0 15}
+    core_1: ${cpu cpu1}% ${freq_g cpu1}Ghz
+    ${cpugraph cpu1 15}
+    core_2: ${cpu cpu2}% ${freq_g cpu2}Ghz
+    ${cpugraph cpu2 15}
+    core_3: ${cpu cpu3}% ${freq_g cpu3}Ghz
+    ${cpugraph cpu3 15}
+    core_4: ${cpu cpu4}% ${freq_g cpu4}Ghz
+    ${cpugraph cpu4 15}
+    core_5: ${cpu cpu5}% ${freq_g cpu5}Ghz
+    ${cpugraph cpu5 15}
+MEMORY------------
+    used : ${mem} ${memperc}%
+    free : ${memfree}
+    total: ${memmax}
+    ${memgraph 15}
+GRAPHICS---------
+    gpu freq: ${nvidia gpufreq}
+    threshold: ${nvidia threshold}°C
+    ambient: ${nvidia ambient}°C
+    mem freq: ${nvidia memfreq}
+    image quality: ${nvidia imagequality}
+Network:----------
+    Local : ${addr enp3s0}
+    Remote: ${execi 3600 curl -s ifconfig.co | sed -e 's/[^[:digit:]\|.]//g'}
+]]
