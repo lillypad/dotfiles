@@ -31,11 +31,13 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 new_window 1pixel
 floating_modifier $mod
-exec --no-startup-id feh --bg-scale ~/Photos/backgrounds/madoka.jpg
-# exec --no-startup-id xcompmgr -o 0.65 -f
-# exec --no-startup-id compton --vsync opengl --backend glx --detect-client-opacity -r 12 -o 0.85 -l -15 -t -15 -I 0.028 -O 0.03 -D 10 -f -b
-exec --no-startup-id compton --vsync opengl --detect-client-opacity
-bindsym $mod+p exec --no-startup-id i3lock -i ~/Photos/backgrounds/madoka.png
+
+exec --no-startup-id feh --bg-scale ~/.config/i3/wallpapers/madoka.jpg
+
+exec --no-startup-id xcompmgr -o 0.65 -f
+
+bindsym $mod+p exec --no-startup-id i3lock -i ~/.config/i3/wallpapers/madoka.png
+
 bindsym $mod+Shift+s exec --no-startup-id scrot
 
 # start a terminal
@@ -45,8 +47,7 @@ bindsym $mod+Return exec --no-startup-id lxterminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-#bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+d exec --no-startup-id ~/.config/i3/start-rofi.sh
+bindsym $mod+d exec --no-startup-id dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
