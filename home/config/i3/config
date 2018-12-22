@@ -34,7 +34,7 @@ floating_modifier $mod
 
 exec --no-startup-id feh --bg-scale ~/.config/i3/wallpapers/madoka.jpg
 
-exec --no-startup-id xcompmgr -o 0.65 -f
+exec --no-startup-id compton --vsync opengl --backend glx
 
 bindsym $mod+p exec --no-startup-id i3lock -i ~/.config/i3/wallpapers/madoka.png
 
