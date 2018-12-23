@@ -22,7 +22,7 @@ alias tmacs="emacs -nw"
 alias tcmacs="emacsclient -nw"
 alias cmacs="emacsclient -n -c"
 alias tor-browser="chromium --incognito --proxy-server='socks5://127.0.0.1:9050' 2>/dev/null &"
-
+alias weather="curl wttr.in"
 # Set Terminal Color
 set TERM "xterm-256color"
 set -gx PATH $PATH ~/.local/bin/
