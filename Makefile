@@ -16,7 +16,7 @@
 .PHONY: install
 .PHONY: uninstall
 
-install: dirs install-x install-oh-my-fish install-vifm install-emacs install-i3 install-youtube-viewer install-conky
+install: dirs install-x install-oh-my-fish install-vifm install-emacs install-i3 install-youtube-viewer install-conky install-scripts
 
 dirs:
 	mkdir -p ~/Music/ \
@@ -76,7 +76,7 @@ pull:
 	@cp ~/.conkyrc home/conkyrc || echo "warning: conky missing update skipped..."
 	@cp ~/.local/bin/volume home/local/bin/volume || echo "warning: volume script missing update skipped..."
 
-uninstall: uninstall-emacs uninstall-vifm uninstall-fish uninstall-youtube-viewer uninstall-x uninstall-conky
+uninstall: uninstall-emacs uninstall-vifm uninstall-fish uninstall-youtube-viewer uninstall-x uninstall-conky uninstall-scripts
 
 uninstall-emacs:
 	rm -rf ~/.emacs.d/
@@ -96,3 +96,7 @@ uninstall-x:
 
 uninstall-conky:
 	rm -f ~/.conkyrc
+
+uninstall-scripts:
+	cd ~/.local/bin/ && \
+		rm -f volume
