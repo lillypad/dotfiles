@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+PERCENT=10
+
+function help_menu(){
+    echo "usage: volume [up|down] [1-100]"
+}
+
+SINK=$(pacmd list-sinks | grep -Po '(?<=\*\sindex\:\s)\d{1,}')
+
+if [ $# -eq 0 ]; then
+    echo "warning: not enough arguments";
+    help_menu;
+    exit 1;
+fi
+
+while test $# -gt 0; do
+    case "$1" in
+        help)
+            help_menu
+            exit 0
+            ;;
+        up)
+            shift
+            if test $# -gt 0; then
+                pactl set-sink-volume $SINK +$1%
+            else
+                pactl set-sink-volume $SINK +$PERCENT%
+            fi
+            exit 0
+            ;;
+        down)
+            shift
+            if test $# -gt 0; then
+                pactl set-sink-volume $SINK -$1%
+            else
+                pactl set-sink-volume $SINK -$PERCENT%
+            fi
+            exit 0
+            ;;
+        *)
+            help_menu
+            exit 1
+            ;;
+    esac
+    shift
+done

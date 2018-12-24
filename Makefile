@@ -59,6 +59,10 @@ install-fonts:
 		./install.sh
 	rm -rf /tmp/powerline-fonts/
 
+install-scripts:
+	cd home/local/bin/ && \
+		cp volume ~/.local/bin/volume
+
 pull:
 	@cp ~/.spacemacs home/spacemacs || echo "warning: spacemacs config missing update skipped..."
 	@cp ~/.ncmpcpp/config home/ncmpcpp/config || echo "warning: ncmpcpp config missing update skipped..."
@@ -69,7 +73,8 @@ pull:
 	@cp -r ~/.config/i3/. home/config/i3/ || echo "warning: i3 missing update skipped..."
 	@cp ~/.config/youtube-viewer/youtube-viewer.conf home/config/youtube-viewer/youtube-viewer.conf || echo "warning: youtube-viewer missing update skipped..."
 	@cp ~/.xinitrc home/xinitrc || echo "warning: xinitrc missing skipping..."
-	@cp ~/.conkyrc home/conkyrc
+	@cp ~/.conkyrc home/conkyrc || echo "warning: conky missing update skipped..."
+	@cp ~/.local/bin/volume home/local/bin/volume || echo "warning: volume script missing update skipped..."
 
 uninstall: uninstall-emacs uninstall-vifm uninstall-fish uninstall-youtube-viewer uninstall-x uninstall-conky
 
