@@ -16,7 +16,7 @@
 .PHONY: install
 .PHONY: uninstall
 
-install: dirs install-x install-oh-my-fish install-vifm install-emacs install-i3 install-youtube-viewer install-conky install-scripts
+install: dirs install-x install-oh-my-fish install-vifm install-emacs install-i3 install-youtube-viewer install-conky install-scripts install-i3blocks
 
 dirs:
 	mkdir -p ~/Music/ \
@@ -30,11 +30,13 @@ install-x:
 	cp home/xinitrc ~/.xinitrc
 
 install-oh-my-fish:
+	mkdir -p ~/.config/fish/
 	cp home/config/fish/config.fish ~/.config/fish/config.fish
 	curl -s -L https://get.oh-my.fish | fish || echo
 	fish -c "omf install lambda"
 
 install-vifm:
+	mkdir -p ~/.config/vifm/colors/
 	rm -rf ~/.config/vifm/colors/
 	cp home/config/vifm/vifmrc ~/.config/vifm/vifmrc
 	git clone https://github.com/vifm/vifm-colors ~/.config/vifm/colors
@@ -45,9 +47,11 @@ install-emacs:
 	emacs --batch -l ~/.emacs.d/init.el
 
 install-i3:
+	mkdir -p ~/.config/i3/
 	cp -r home/config/i3/. ~/.config/i3/
 
 install-youtube-viewer:
+	mkdir -p ~/.config/youtube-viewer/
 	cp home/config/youtube-viewer/youtube-viewer.conf ~/.config/youtube-viewer/youtube-viewer.conf
 
 install-conky:
@@ -60,8 +64,13 @@ install-fonts:
 	rm -rf /tmp/powerline-fonts/
 
 install-scripts:
+	mkdir -p ~/.local/bin/
 	cd home/local/bin/ && \
 		cp volume ~/.local/bin/volume
+
+install-i3blocks:
+	mkdir -p ~/.config/i3blocks/
+	cp -r home/config/i3blocks/. ~/.config/i3blocks/
 
 pull:
 	@cp ~/.spacemacs home/spacemacs || echo "warning: spacemacs config missing update skipped..."
@@ -75,8 +84,9 @@ pull:
 	@cp ~/.xinitrc home/xinitrc || echo "warning: xinitrc missing skipping..."
 	@cp ~/.conkyrc home/conkyrc || echo "warning: conky missing update skipped..."
 	@cp ~/.local/bin/volume home/local/bin/volume || echo "warning: volume script missing update skipped..."
+	@cp -r ~/.config/i3blocks/. home/config/i3blocks/ || echo "warning: i3blocks missing update skipped..."
 
-uninstall: uninstall-emacs uninstall-vifm uninstall-fish uninstall-youtube-viewer uninstall-x uninstall-conky uninstall-scripts
+uninstall: uninstall-emacs uninstall-vifm uninstall-fish uninstall-youtube-viewer uninstall-x uninstall-conky uninstall-scripts uninstall-i3blocks
 
 uninstall-emacs:
 	rm -rf ~/.emacs.d/
@@ -100,3 +110,6 @@ uninstall-conky:
 uninstall-scripts:
 	cd ~/.local/bin/ && \
 		rm -f volume
+
+uninstall-i3blocks:
+	rm -rf ~/.config/i3blocks/
