@@ -72,6 +72,9 @@ install-i3blocks:
 	mkdir -p ~/.config/i3blocks/
 	cp -r home/config/i3blocks/. ~/.config/i3blocks/
 
+install-kernel:
+	cp usr/src/linux/config /usr/src/linux/.config
+
 pull:
 	@cp ~/.spacemacs home/spacemacs || echo "warning: spacemacs config missing update skipped..."
 	@cp ~/.ncmpcpp/config home/ncmpcpp/config || echo "warning: ncmpcpp config missing update skipped..."
@@ -85,6 +88,7 @@ pull:
 	@cp ~/.conkyrc home/conkyrc || echo "warning: conky missing update skipped..."
 	@cp ~/.local/bin/volume home/local/bin/volume || echo "warning: volume script missing update skipped..."
 	@cp -r ~/.config/i3blocks/. home/config/i3blocks/ || echo "warning: i3blocks missing update skipped..."
+	@cp /usr/src/linux/.config usr/src/linux/config || echo "warning kernel config missing update skipped..."
 
 uninstall: uninstall-emacs uninstall-vifm uninstall-fish uninstall-youtube-viewer uninstall-x uninstall-conky uninstall-scripts uninstall-i3blocks
 

@@ -60,41 +60,32 @@ command=~/.config/i3blocks/blocks/mem.sh
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
 [disk]
-label=HOME
-#instance=/mnt/data
-interval=30
+label=:
+interval=1
+command=~/.config/i3blocks/blocks/disk.sh
 
 # Network interface monitoring
 #
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [iface]
-#instance=wlan0
-color=#00FF00
-interval=10
-separator=false
+label=:
+interval=1
+command=~/.config/i3blocks/blocks/ip_local.sh
 
 [wifi]
 #instance=wlp3s0
 interval=10
 separator=false
 
-[bandwidth]
-#instance=eth0
-interval=5
-
 # CPU usage
 #
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
 [cpu_usage]
-label=CPU
-interval=10
-min_width=CPU: 100.00%
-#separator=false
-
-#[load_average]
-#interval=10
+label=:
+interval=1
+command=~/.config/i3blocks/blocks/cpu.sh
 
 # Battery indicator
 #
@@ -106,10 +97,10 @@ label=BAT
 interval=30
 
 # Date Time
-#
 [time]
+label=:
 command=date '+%Y-%m-%d %H:%M:%S'
-interval=5
+interval=1
 
 # Generic media player support
 #
