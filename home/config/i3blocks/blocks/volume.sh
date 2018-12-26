@@ -5,6 +5,7 @@ pacmd list-sinks | sed -e 's/^[ \t]*//' | while read i; do
 	      break;
     fi
     if echo $i | grep -Pq '^volume:'; then
-        echo $i | grep -Po '(\d{1,3}\%){1}' | head -1;
+        VOLUME=$(echo $i | grep -Po '(\d{1,3}\%){1}' | head -1);
+	echo -n -e "\xef\x80\xa8: ${VOLUME}";
     fi
 done
