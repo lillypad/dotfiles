@@ -5,35 +5,35 @@ separator_block_width=0
 
 [iface]
 interval=1
-command=echo "<span color='white'></span><span color='black' bgcolor='white'>: `~/.config/i3blocks/blocks/ip_local.sh`</span><span color='black' bgcolor='white'> </span>"
+command=~/.config/i3blocks/blocks/powerline.sh white black :`~/.config/i3blocks/blocks/ip_local.sh`
 markup=pango
 
 [cpu_usage]
 interval=1
-command=echo "<span color='white' bgcolor='black'>: `~/.config/i3blocks/blocks/cpu.sh`</span><span color='white' bgcolor='black'> </span>"
+command=~/.config/i3blocks/blocks/powerline.sh black white :`~/.config/i3blocks/blocks/cpu.sh`
 markup=pango
 
 [memory]
 interval=1
-command=echo "<span color='black' bgcolor='white'>: `~/.config/i3blocks/blocks/mem.sh`</span><span color='black' bgcolor='white'> </span>"
+command=~/.config/i3blocks/blocks/powerline.sh white black :`~/.config/i3blocks/blocks/mem.sh`
 markup=pango
 
 [disk]
-label=:
 interval=1
-command=~/.config/i3blocks/blocks/disk.sh
+command=~/.config/i3blocks/blocks/powerline.sh black white :`~/.config/i3blocks/blocks/disk.sh`
+markup=pango
 
 [volume]
-label=:
 interval=1
-command=~/.config/i3blocks/blocks/volume.sh
+command=~/.config/i3blocks/blocks/powerline.sh white black :`~/.config/i3blocks/blocks/volume.sh`
+markup=pango
 
 [music]
-label=:
-command=~/.config/i3blocks/blocks/now_playing.sh
 interval=1
+command=~/.config/i3blocks/blocks/powerline.sh black white :`~/.config/i3blocks/blocks/now_playing.sh`
+markup=pango
 
 [time]
-label=:
-command=date '+%Y-%m-%d %H:%M:%S'
 interval=1
+command=~/.config/i3blocks/blocks/powerline.sh white black :`date '+%Y-%m-%dT%H:%M:%S'`
+markup=pango
