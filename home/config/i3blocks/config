@@ -1,73 +1,37 @@
-full_text=〉
-align=center
-color=#666666
 separator=false
-separator_block_width=1
 
 command=/usr/libexec/i3blocks/$BLOCK_NAME
-separator_block_width=15
-markup=none
+separator_block_width=0
 
 [iface]
-label=:
 interval=1
-command=~/.config/i3blocks/blocks/ip_local.sh
-
-[seperator]
-
-[wifi]
-label=:
-instance=wlp0s22f2u2
-interval=1
-
-[seperator]
-
-[openvpn]
-label=:
-interval=1
-
-[seperator]
+command=echo "<span color='white'></span><span color='black' bgcolor='white'>: `~/.config/i3blocks/blocks/ip_local.sh`</span><span color='black' bgcolor='white'> </span>"
+markup=pango
 
 [cpu_usage]
-label=:
 interval=1
-command=~/.config/i3blocks/blocks/cpu.sh
-
-[seperator]
-
-[temperature]
-label=:
-interval=10
-
-[seperator]
+command=echo "<span color='white' bgcolor='black'>: `~/.config/i3blocks/blocks/cpu.sh`</span><span color='white' bgcolor='black'> </span>"
+markup=pango
 
 [memory]
-label=:
 interval=1
-command=~/.config/i3blocks/blocks/mem.sh
-
-[seperator]
+command=echo "<span color='black' bgcolor='white'>: `~/.config/i3blocks/blocks/mem.sh`</span><span color='black' bgcolor='white'> </span>"
+markup=pango
 
 [disk]
 label=:
 interval=1
 command=~/.config/i3blocks/blocks/disk.sh
 
-[seperator]
-
 [volume]
 label=:
 interval=1
 command=~/.config/i3blocks/blocks/volume.sh
 
-[seperator]
-
 [music]
 label=:
 command=~/.config/i3blocks/blocks/now_playing.sh
 interval=1
-
-[seperator]
 
 [time]
 label=:
