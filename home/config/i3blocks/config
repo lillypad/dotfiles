@@ -37,3 +37,8 @@ markup=pango
 interval=1
 command=~/.config/i3blocks/blocks/powerline.sh white black ~/.config/i3blocks/blocks/date.sh
 markup=pango
+
+[apps]
+interval=1
+command=~/.config/i3blocks/blocks/powerline.sh black white "echo -n -e \xef\x84\xb5: "
+markup=pango
