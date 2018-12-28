@@ -57,10 +57,10 @@ bindsym $mod+d exec --no-startup-id dmenu_run -nb '#000000' -sf '#000000' -sb '#
 
 
 # resize window
-bindsym $mod+u exec --no-startup-id ~/.config/i3/scripts/i3-resize down
-bindsym $mod+i exec --no-startup-id ~/.config/i3/scripts/i3-resize up
-bindsym $mod+y exec --no-startup-id ~/.config/i3/scripts/i3-resize left
-bindsym $mod+o exec --no-startup-id ~/.config/i3/scripts/i3-resize right
+bindsym $mod+Shift+u exec --no-startup-id ~/.config/i3/scripts/i3-resize down
+bindsym $mod+Shift+i exec --no-startup-id ~/.config/i3/scripts/i3-resize up
+bindsym $mod+Shift+y exec --no-startup-id ~/.config/i3/scripts/i3-resize left
+bindsym $mod+Shift+o exec --no-startup-id ~/.config/i3/scripts/i3-resize right
 
 # change focus
 bindsym $mod+h focus left
