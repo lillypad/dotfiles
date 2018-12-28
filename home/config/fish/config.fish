@@ -15,6 +15,7 @@ function mpctube
 end
 
 # Aliases
+alias service="rc-service"
 alias wifi-scan="sudo iwlist scan"
 alias sync="sudo layman -S; sudo emerge --sync"
 alias dmacs="emacs --daemon"
