@@ -16,7 +16,7 @@
 .PHONY: install
 .PHONY: uninstall
 
-install: dirs install-x install-oh-my-fish install-vifm install-emacs install-i3 install-youtube-viewer install-conky install-scripts install-i3blocks
+install: dirs install-x install-oh-my-fish install-vifm install-emacs install-i3 install-youtube-viewer install-conky install-scripts install-i3blocks install-ncmpcpp
 
 dirs:
 	mkdir -p ~/Music/ \
@@ -72,12 +72,17 @@ install-i3blocks:
 	mkdir -p ~/.config/i3blocks/
 	cp -r home/config/i3blocks/. ~/.config/i3blocks/
 
+install-ncmpcpp:
+	mkdir -p ~/.config/ncmpcpp/
+	cp -r home/ncmpcpp/. ~/.ncmpcpp/
+
 install-kernel:
 	cp usr/src/linux/config /usr/src/linux/.config
 
 pull:
 	@cp ~/.spacemacs home/spacemacs || echo "warning: spacemacs config missing update skipped..."
 	@cp ~/.ncmpcpp/config home/ncmpcpp/config || echo "warning: ncmpcpp config missing update skipped..."
+	@cp ~/.ncmpcpp/bindings home/ncmpcpp/bindings || echo "warning: ncmpcpp bindings missing update skipped..."
 	@cp ~/.mpd/mpd.conf home/mpd/mpd.conf || echo "warning mpd config missing skipping..."
 	@cp ~/.config/fish/config.fish home/config/fish/config.fish || echo "warning fish config missing update skipped..."
 	@cp ~/.config/vifm/vifmrc home/config/vifm/vifmrc || echo "warning: vifm config missing update skipped..."
@@ -90,7 +95,7 @@ pull:
 	@cp -r ~/.config/i3blocks/. home/config/i3blocks/ || echo "warning: i3blocks missing update skipped..."
 	@cp /usr/src/linux/.config usr/src/linux/config || echo "warning kernel config missing update skipped..."
 
-uninstall: uninstall-emacs uninstall-vifm uninstall-fish uninstall-youtube-viewer uninstall-x uninstall-conky uninstall-scripts uninstall-i3blocks
+uninstall: uninstall-emacs uninstall-vifm uninstall-fish uninstall-youtube-viewer uninstall-x uninstall-conky uninstall-scripts uninstall-i3blocks uninstall-ncmpcpp
 
 uninstall-emacs:
 	rm -rf ~/.emacs.d/
@@ -117,3 +122,6 @@ uninstall-scripts:
 
 uninstall-i3blocks:
 	rm -rf ~/.config/i3blocks/
+
+uninstall-ncmpcpp:
+	rm -rf ~/.ncmpcpp/
