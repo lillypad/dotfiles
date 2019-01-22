@@ -94,6 +94,7 @@ pull:
 	@cp ~/.local/bin/volume home/local/bin/volume || echo "warning: volume script missing update skipped..."
 	@cp -r ~/.config/i3blocks/. home/config/i3blocks/ || echo "warning: i3blocks missing update skipped..."
 	@cp /usr/src/linux/.config usr/src/linux/config || echo "warning kernel config missing update skipped..."
+	@cp /etc/portage/make.conf etc/portage/make.conf || echo "warning: portage make config missing update skipped..."
 
 uninstall: uninstall-emacs uninstall-vifm uninstall-fish uninstall-youtube-viewer uninstall-x uninstall-conky uninstall-scripts uninstall-i3blocks uninstall-ncmpcpp
 
