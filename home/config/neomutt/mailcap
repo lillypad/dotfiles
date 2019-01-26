@@ -1,0 +1,2 @@
+text/html; chromium %s 2>&1 > /dev/null &; nametemplate=%s.html; needsterminal;
+text/html; w3m -I %{charset} -T text/html; nametemplate=%s.html; copiousoutput;

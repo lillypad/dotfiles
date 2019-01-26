@@ -11,7 +11,9 @@
 - [`tmux`](https://github.com/tmux/tmux)
 - [`powerline`](https://github.com/powerline/fonts)
 - [`fish`](https://fishshell.com/)
-
+- [`neomutt`](https://neomutt.org/)
+- [`mpd`](https://www.musicpd.org/)
+- [`ncmpcpp`](https://rybczak.net/ncmpcpp/)
 # Install
 
 ```bash

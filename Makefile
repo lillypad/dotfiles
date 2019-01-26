@@ -16,7 +16,7 @@
 .PHONY: install
 .PHONY: uninstall
 
-install: dirs install-x install-oh-my-fish install-vifm install-emacs install-i3 install-youtube-viewer install-conky install-scripts install-i3blocks install-ncmpcpp
+install: dirs install-x install-oh-my-fish install-vifm install-emacs install-i3 install-youtube-viewer install-conky install-scripts install-i3blocks install-ncmpcpp install-neomutt
 
 dirs:
 	mkdir -p ~/Music/ \
@@ -76,6 +76,10 @@ install-ncmpcpp:
 	mkdir -p ~/.config/ncmpcpp/
 	cp -r home/ncmpcpp/. ~/.ncmpcpp/
 
+install-neomutt:
+	mkdir -p ~/.config/neomutt/
+	cp -r home/config/neomutt/. ~/.config/neomutt/
+
 install-kernel:
 	cp usr/src/linux/config /usr/src/linux/.config
 
@@ -95,8 +99,9 @@ pull:
 	@cp -r ~/.config/i3blocks/. home/config/i3blocks/ || echo "warning: i3blocks missing update skipped..."
 	@cp /usr/src/linux/.config usr/src/linux/config || echo "warning kernel config missing update skipped..."
 	@cp /etc/portage/make.conf etc/portage/make.conf || echo "warning: portage make config missing update skipped..."
+	@cp -r ~/.config/neomutt/. home/config/neomutt/ || echo "warning: neomutt config missing update skipped..."
 
-uninstall: uninstall-emacs uninstall-vifm uninstall-fish uninstall-youtube-viewer uninstall-x uninstall-conky uninstall-scripts uninstall-i3blocks uninstall-ncmpcpp
+uninstall: uninstall-emacs uninstall-vifm uninstall-fish uninstall-youtube-viewer uninstall-x uninstall-conky uninstall-scripts uninstall-i3blocks uninstall-ncmpcpp uninstall-neomutt
 
 uninstall-emacs:
 	rm -rf ~/.emacs.d/
@@ -126,3 +131,7 @@ uninstall-i3blocks:
 
 uninstall-ncmpcpp:
 	rm -rf ~/.ncmpcpp/
+
+
+uninstall-neomutt:
+	rm -rf ~/.config/neomutt/
