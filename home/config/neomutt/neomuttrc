@@ -23,6 +23,8 @@ bind index,pager \CN sidebar-next
 bind index,pager \CO sidebar-open
 bind index,pager \CD next-page
 bind index,pager \CU previous-page
+bind index - collapse-thread
+bind index _ collapse-all
 bind index g noop
 macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
 macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
@@ -31,7 +33,14 @@ macro index gi "<change-folder>=Inbox<enter>" "Go to inbox"
 # Theme
 set sidebar_visible
 set mail_check_stats
-set sort = reverse-date-received
+set sort = 'threads'
+set strict_threads = 'yes'
+set sort_browser = 'reverse-date'
+set sort_aux = 'last-date-received'
+set index_format = '%?M?+& ?%2M %2e %Z %D %-20.20F (%4c) %s'
+folder-hook . "push \eV"
+set collapse_unread=yes
+set uncollapse_jump=yes
 set editor = 'emacs -nw'
 auto_view text/html
 color   normal            default         default
