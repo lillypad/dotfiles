@@ -30,8 +30,15 @@ font pango:DejaVu Sans Mono 8
 
 # Custom Options
 
-gaps inner 5
-gaps outer 5
+set $gap_size 10
+set $gap_increment 5
+
+gaps inner $gap_size
+gaps outer $gap_size
+
+bindsym $mod+g gaps inner current plus $gap_increment; gaps outer current plus $gap_increment
+bindsym $mod+Shift+g gaps inner current minus $gap_increment; gaps outer current minus $gap_increment
+bindsym $mod+Control+g gaps inner current set $gap_size; gaps outer current set $gap_size
 
 new_window 1pixel
 floating_modifier $mod
