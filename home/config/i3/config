@@ -30,7 +30,9 @@ font pango:DejaVu Sans Mono 8
 
 # Custom Options
 
-# Use Mouse+$mod to drag floating windows to their wanted position
+gaps inner 5
+gaps outer 5
+
 new_window 1pixel
 floating_modifier $mod
 
