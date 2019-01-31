@@ -3,6 +3,16 @@ separator=false
 command=/usr/libexec/i3blocks/$BLOCK_NAME
 separator_block_width=0
 
+[vpn]
+interval=1
+command=~/.config/i3blocks/blocks/powerline.sh white black ~/.config/i3blocks/blocks/vpn.sh
+markup=pango
+
+[publicip]
+interval=5
+command=~/.config/i3blocks/blocks/powerline.sh black white ~/.config/i3blocks/blocks/ip_public.sh
+markup=pango
+
 [iface]
 interval=1
 command=~/.config/i3blocks/blocks/powerline.sh white black ~/.config/i3blocks/blocks/ip_local.sh
