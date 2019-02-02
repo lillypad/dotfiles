@@ -40,6 +40,10 @@ bindsym $mod+g gaps inner current plus $gap_increment; gaps outer current plus $
 bindsym $mod+Shift+g gaps inner current minus $gap_increment; gaps outer current minus $gap_increment
 bindsym $mod+Control+g gaps inner current set $gap_size; gaps outer current set $gap_size
 
+# Hot Keys
+bindsym XF86AudioLowerVolume exec --no-startup-id volume down
+bindsym XF86AudioRaiseVolume exec --no-startup-id volume up
+
 new_window 1pixel
 floating_modifier $mod
 
