@@ -50,5 +50,5 @@ markup=pango
 
 [apps]
 interval=1
-command=~/.config/i3blocks/blocks/powerline.sh black white "echo -n -e \xef\x84\xb5: "
+command=~/.config/i3blocks/blocks/powerline.sh black white "echo -n -e \xef\x84\xb5|"
 markup=pango
