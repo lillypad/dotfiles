@@ -22,7 +22,7 @@ exec --no-startup-id feh --bg-scale ~/.config/i3/wallpapers/madoka.jpg
 
 exec --no-startup-id compton --vsync opengl --backend glx
 
-bindsym $mod+p exec --no-startup-id i3lock -i ~/.config/i3/wallpapers/madoka.png
+bindsym $mod+Control+l exec --no-startup-id i3lock -i ~/.config/i3/wallpapers/madoka.png
 
 bindsym $mod+Shift+s exec --no-startup-id scrot
 
