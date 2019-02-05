@@ -100,6 +100,7 @@ pull:
 	@cp /usr/src/linux/.config usr/src/linux/config || echo "warning kernel config missing update skipped..."
 	@cp /etc/portage/make.conf etc/portage/make.conf || echo "warning: portage make config missing update skipped..."
 	@cp -r ~/.config/neomutt/. home/config/neomutt/ || echo "warning: neomutt config missing update skipped..."
+	@cp -r ~/.ncmpcpp/scripts/. home/ncmpcpp/scripts/ || echo "warning: ncmpcpp scripts missing update skipped..."
 
 uninstall: uninstall-emacs uninstall-vifm uninstall-fish uninstall-youtube-viewer uninstall-x uninstall-conky uninstall-scripts uninstall-i3blocks uninstall-ncmpcpp uninstall-neomutt
 
