@@ -26,6 +26,22 @@ dirs:
 		~/Docs/ \
 		~/Photos
 
+build-st:
+	cd src/st/ && \
+		make
+
+clean-st:
+	cd src/st/ && \
+		make clean
+
+install-st:
+	cd src/st/ && \
+		sudo make install
+
+uninstall-st:
+	cd src/st/ && \
+		sudo make uninstall
+
 install-x:
 	cp home/xinitrc ~/.xinitrc
 
