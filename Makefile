@@ -36,7 +36,7 @@ clean-st:
 
 install-st:
 	cd src/st/ && \
-		sudo make install
+		make install
 
 uninstall-st:
 	cd src/st/ && \

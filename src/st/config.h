@@ -3,9 +3,9 @@
 /*
  * appearance
  *
- * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
+ * font: see http://freedesktop.org/software/fandango/fontconfig-user.html
  */
-static char *font = "DejaVu Sans Mono for Powerline:pixelsize=12:antialias=true:autohint=true";
+static char *font = "DejaVu Sans Mono:pixelsize=12:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
