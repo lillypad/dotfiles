@@ -60,6 +60,9 @@ install-vifm:
 install-emacs:
 	cp home/spacemacs ~/.spacemacs
 	git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+	cd ~/.emacs.d/ && \
+		git checkout develop
+	cd ~
 	emacs --batch -l ~/.emacs.d/init.el
 
 install-i3:

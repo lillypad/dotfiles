@@ -26,11 +26,13 @@ bindsym $mod+Control+l exec --no-startup-id i3lock -i ~/.config/i3/wallpapers/ma
 
 bindsym $mod+Shift+s exec --no-startup-id scrot
 
-bindsym $mod+Return exec --no-startup-id urxvt
+bindsym $mod+Return exec --no-startup-id st
 
 bindsym $mod+Shift+q kill
 
 bindsym $mod+d exec --no-startup-id dmenu_run -nb '#000000' -sf '#000000' -sb '#ffffff' -nf '#ffffff'
+
+bindsym $mod+m exec --no-startup-id ~/.config/i3/scripts/mpc.fish
 
 bindsym $mod+Shift+u exec --no-startup-id ~/.config/i3/scripts/i3-resize down
 bindsym $mod+Shift+i exec --no-startup-id ~/.config/i3/scripts/i3-resize up
