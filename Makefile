@@ -99,6 +99,10 @@ install-neomutt:
 	mkdir -p ~/.config/neomutt/
 	cp -r home/config/neomutt/. ~/.config/neomutt/
 
+install-mc:
+	mkdir -p ~/.config/mc/
+	cp -r home/config/mc/. ~/.config/mc/
+
 install-kernel:
 	cp usr/src/linux/config /usr/src/linux/.config
 
@@ -120,6 +124,7 @@ pull:
 	@cp /etc/portage/make.conf etc/portage/make.conf || echo "warning: portage make config missing update skipped..."
 	@cp -r ~/.config/neomutt/. home/config/neomutt/ || echo "warning: neomutt config missing update skipped..."
 	@cp -r ~/.ncmpcpp/scripts/. home/ncmpcpp/scripts/ || echo "warning: ncmpcpp scripts missing update skipped..."
+	@cp -r ~/.config/mc/. home/config/mc/ || echo "warning: mc config missing update skipped..."
 
 uninstall: uninstall-emacs uninstall-vifm uninstall-fish uninstall-youtube-viewer uninstall-x uninstall-conky uninstall-scripts uninstall-i3blocks uninstall-ncmpcpp uninstall-neomutt
 
@@ -152,6 +157,8 @@ uninstall-i3blocks:
 uninstall-ncmpcpp:
 	rm -rf ~/.ncmpcpp/
 
+uninstall-mc:
+	rm -rf ~/.config/mc/
 
 uninstall-neomutt:
 	rm -rf ~/.config/neomutt/

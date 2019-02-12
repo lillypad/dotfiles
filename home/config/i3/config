@@ -123,6 +123,13 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+for_window [class="^.*"] border pixel 5
+
+client.focused          #000000 #9370db #ffffff #9370db
+client.focused_inactive #000000 #000000 #ffffff #ff0000 
+client.unfocused        #000000 #000000 #ffffff #ff0000
+client.urgent           #ff0000 #000000 #000000 #ff0000
+
 bar {
 	status_command i3blocks
 	colors {
