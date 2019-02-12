@@ -14,13 +14,19 @@
 - [`neomutt`](https://neomutt.org/)
 - [`mpd`](https://www.musicpd.org/)
 - [`ncmpcpp`](https://rybczak.net/ncmpcpp/)
+- [`mc`](https://midnight-commander.org/)
+
 # Install
 
 ```bash
 make install
 ```
 
+:notebook: You can also use different make targets for each program you wish to install configuations for i.e. `make install-emacs`.
+
 # Uninstall
 ```
 make uninstall
 ```
+
+Enjoy :beers:

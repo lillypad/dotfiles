@@ -16,7 +16,7 @@
 .PHONY: install
 .PHONY: uninstall
 
-install: dirs install-x install-oh-my-fish install-vifm install-emacs install-i3 install-youtube-viewer install-conky install-scripts install-i3blocks install-ncmpcpp install-neomutt
+install: dirs install-x install-oh-my-fish install-vifm install-emacs install-i3 install-youtube-viewer install-conky install-scripts install-i3blocks install-ncmpcpp install-neomutt install-mc
 
 dirs:
 	mkdir -p ~/Music/ \
