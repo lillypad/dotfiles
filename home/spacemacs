@@ -137,8 +137,8 @@
     (spacemacs/set-leader-keys "amc" 'emms-player-mpd-connect
       "amp" 'emms-player-mpd-play
       "amP" 'emms-player-mpd-pause
-      "amn" 'emms-player-mpd-next
-      "amp" 'emms-player-mpd-previous
+      "aml" 'emms-player-mpd-next
+      "amh" 'emms-player-mpd-previous
       "amS" 'emms-player-mpd-stop
       "ami" 'emms-player-mpd-show
       "amu" 'emms-player-mpd-update-all
