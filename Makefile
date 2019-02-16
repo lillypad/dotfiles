@@ -92,8 +92,12 @@ install-i3blocks:
 	cp -r home/config/i3blocks/. ~/.config/i3blocks/
 
 install-ncmpcpp:
-	mkdir -p ~/.config/ncmpcpp/
+	mkdir -p ~/.ncmpcpp/
 	cp -r home/ncmpcpp/. ~/.ncmpcpp/
+
+install-mpd:
+	mkdir -p ~/mpd/
+	cp -r home/mpd/. ~/mpd/
 
 install-neomutt:
 	mkdir -p ~/.config/neomutt/
@@ -156,6 +160,9 @@ uninstall-i3blocks:
 
 uninstall-ncmpcpp:
 	rm -rf ~/.ncmpcpp/
+
+uninstall-mpd:
+	rm -rf ~/.mpd/
 
 uninstall-mc:
 	rm -rf ~/.config/mc/
