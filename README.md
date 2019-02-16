@@ -33,4 +33,13 @@ make install
 make uninstall
 ```
 
+# Pulling Your Configurations
+
+:notebook: You can pull your own configuations into this repository with one command.
+
+
+```bash
+make pull
+```
+
 Enjoy :beers:
