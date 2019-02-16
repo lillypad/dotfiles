@@ -16,6 +16,10 @@
 - [`ncmpcpp`](https://rybczak.net/ncmpcpp/)
 - [`mc`](https://midnight-commander.org/)
 
+# Screenshots
+
+![Screenshot](docs/img/screenshot_0.png)
+
 # Install
 
 ```bash
