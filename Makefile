@@ -74,6 +74,20 @@ install-st:
 uninstall-st:
 	rm -f ~/.local/bin/st
 
+install-quicklisp:
+	curl -s --output ~/quicklisp.lisp "https://beta.quicklisp.org/quicklisp.lisp"
+	@echo "|---------------------------------|"
+	@echo "|  RUN THESE COMMANDS TO INSTALL  |"
+	@echo "|---------------------------------|"
+	@echo "| (quicklisp-quickstart:install)  |"
+	@echo "|      (ql:add-to-init-file)      |"
+	@echo "|---------------------------------|"
+	sbcl --load ~/quicklisp.lisp
+	rm -f ~/quicklisp.lisp
+
+uninstall-quicklisp:
+	rm -rf ~/quicklisp/
+
 install-x:
 	cp home/xinitrc ~/.xinitrc
 
