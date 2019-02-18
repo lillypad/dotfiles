@@ -13,10 +13,43 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+CWD=$(shell pwd)
+
+.PHONY: clean
+.PHONY: build
 .PHONY: install
 .PHONY: uninstall
 
-install: dirs install-x install-oh-my-fish install-vifm install-emacs install-i3 install-youtube-viewer install-conky install-scripts install-i3blocks install-ncmpcpp install-neomutt install-mc
+clean: clean-st
+
+build: build-st
+
+install: dirs \
+	install-st \
+	install-fish \
+	install-vifm \
+	install-youtube-viewer \
+	install-emacs \
+	install-mpd \
+	install-ncmpcpp \
+	install-i3 \
+	install-i3blocks \
+	install-conky \
+	install-neomutt \
+	install-mc
+
+uninstall: uninstall-st \
+	uninstall-fish \
+	uninstall-vifm \
+	uninstall-youtube-viewer \
+	uninstall-emacs \
+	uninstall-mpd \
+	uninstall-ncmpcpp \
+	uninstall-i3 \
+	uninstall-i3blocks \
+	uninstall-conky \
+	uninstall-neomutt \
+	uninstall-mc
 
 dirs:
 	mkdir -p ~/Music/ \
@@ -35,46 +68,66 @@ clean-st:
 		make clean
 
 install-st:
-	cd src/st/ && \
-		make install
+	mkdir -p ~/.local/bin/
+	cp src/st/st ~/.local/bin/
 
 uninstall-st:
-	cd src/st/ && \
-		sudo make uninstall
+	rm -f ~/.local/bin/st
 
 install-x:
 	cp home/xinitrc ~/.xinitrc
 
-install-oh-my-fish:
+install-fish:
 	mkdir -p ~/.config/fish/
-	cp home/config/fish/config.fish ~/.config/fish/config.fish
+	ln -f -s ${CWD}/home/config/fish/config.fish ~/.config/fish/config.fish
 	curl -s -L https://get.oh-my.fish | fish || echo
 	fish -c "omf install lambda"
 
+uninstall-fish:
+	rm -f ~/.config/fish/config.fish
+	rm -rf ~/.config/fish/
+	rm -rf ~/.local/share/fish/
+	rm -rf ~/.local/share/omf/
+
 install-vifm:
-	mkdir -p ~/.config/vifm/colors/
+	mkdir -p ~/.config/vifm/
 	rm -rf ~/.config/vifm/colors/
-	cp home/config/vifm/vifmrc ~/.config/vifm/vifmrc
+	ln -f -s ${CWD}/home/config/vifm/vifmrc ~/.config/vifm/vifmrc
 	git clone https://github.com/vifm/vifm-colors ~/.config/vifm/colors
 
+uninstall-vifm:
+	rm -f ~/.config/vifm/vifmrc
+	rm -rf ~/.config/vifm/
+
 install-emacs:
-	cp home/spacemacs ~/.spacemacs
+	ln -f -s ${CWD}/home/spacemacs ~/.spacemacs
 	git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 	cd ~/.emacs.d/ && \
 		git checkout develop
 	cd ~
 	emacs --batch -l ~/.emacs.d/init.el
 
+uninstall-emacs:
+	rm -f ~/.spacemacs
+	rm -rf ~/.emacs.d/
+
 install-i3:
-	mkdir -p ~/.config/i3/
-	cp -r home/config/i3/. ~/.config/i3/
+	ln -s ${CWD}/home/config/i3/ ~/.config/i3
+
+uninstall-i3:
+	rm -f ~/.config/i3
 
 install-youtube-viewer:
-	mkdir -p ~/.config/youtube-viewer/
-	cp home/config/youtube-viewer/youtube-viewer.conf ~/.config/youtube-viewer/youtube-viewer.conf
+	ln -s ${CWD}/home/config/youtube-viewer/ ~/.config/youtube-viewer
+
+uninstall-youtube-viewer:
+	rm -f ~/.config/youtube-viewer
 
 install-conky:
-	cp home/conkyrc ~/.conkyrc
+	ln -f -s ${CWD} home/conkyrc ~/.conkyrc
+
+uninstall-conky:
+	rm -f ~/.conkyrc
 
 install-fonts:
 	git clone https://github.com/powerline/fonts.git /tmp/powerline-fonts/
@@ -82,90 +135,41 @@ install-fonts:
 		./install.sh
 	rm -rf /tmp/powerline-fonts/
 
-install-scripts:
+install-bin:
 	mkdir -p ~/.local/bin/
 	cd home/local/bin/ && \
 		cp volume ~/.local/bin/volume
 
-install-i3blocks:
-	mkdir -p ~/.config/i3blocks/
-	cp -r home/config/i3blocks/. ~/.config/i3blocks/
-
-install-ncmpcpp:
-	mkdir -p ~/.ncmpcpp/
-	cp -r home/ncmpcpp/. ~/.ncmpcpp/
-
-install-mpd:
-	mkdir -p ~/mpd/
-	cp -r home/mpd/. ~/mpd/
-
-install-neomutt:
-	mkdir -p ~/.config/neomutt/
-	cp -r home/config/neomutt/. ~/.config/neomutt/
-
-install-mc:
-	mkdir -p ~/.config/mc/
-	cp -r home/config/mc/. ~/.config/mc/
-
-install-kernel:
-	cp usr/src/linux/config /usr/src/linux/.config
-
-pull:
-	@cp ~/.spacemacs home/spacemacs || echo "warning: spacemacs config missing update skipped..."
-	@cp ~/.ncmpcpp/config home/ncmpcpp/config || echo "warning: ncmpcpp config missing update skipped..."
-	@cp ~/.ncmpcpp/bindings home/ncmpcpp/bindings || echo "warning: ncmpcpp bindings missing update skipped..."
-	@cp ~/.mpd/mpd.conf home/mpd/mpd.conf || echo "warning mpd config missing skipping..."
-	@cp ~/.config/fish/config.fish home/config/fish/config.fish || echo "warning fish config missing update skipped..."
-	@cp ~/.config/vifm/vifmrc home/config/vifm/vifmrc || echo "warning: vifm config missing update skipped..."
-	@cp ~/.local/share/applications/mimeapps.list home/local/share/applications/mimeapps.list || echo "warning: mimeapps missing update skipped..."
-	@cp -r ~/.config/i3/. home/config/i3/ || echo "warning: i3 missing update skipped..."
-	@cp ~/.config/youtube-viewer/youtube-viewer.conf home/config/youtube-viewer/youtube-viewer.conf || echo "warning: youtube-viewer missing update skipped..."
-	@cp ~/.xinitrc home/xinitrc || echo "warning: xinitrc missing skipping..."
-	@cp ~/.conkyrc home/conkyrc || echo "warning: conky missing update skipped..."
-	@cp ~/.local/bin/volume home/local/bin/volume || echo "warning: volume script missing update skipped..."
-	@cp -r ~/.config/i3blocks/. home/config/i3blocks/ || echo "warning: i3blocks missing update skipped..."
-	@cp /usr/src/linux/.config usr/src/linux/config || echo "warning kernel config missing update skipped..."
-	@cp /etc/portage/make.conf etc/portage/make.conf || echo "warning: portage make config missing update skipped..."
-	@cp -r ~/.config/neomutt/. home/config/neomutt/ || echo "warning: neomutt config missing update skipped..."
-	@cp -r ~/.ncmpcpp/scripts/. home/ncmpcpp/scripts/ || echo "warning: ncmpcpp scripts missing update skipped..."
-	@cp -r ~/.config/mc/. home/config/mc/ || echo "warning: mc config missing update skipped..."
-
-uninstall: uninstall-emacs uninstall-vifm uninstall-fish uninstall-youtube-viewer uninstall-x uninstall-conky uninstall-scripts uninstall-i3blocks uninstall-ncmpcpp uninstall-neomutt
-
-uninstall-emacs:
-	rm -rf ~/.emacs.d/
-
-uninstall-vifm:
-	rm -rf ~/.config/vifm/vifm-colors/
-	rm -f ~/.config/vifm/vifmrc
-
-uninstall-fish:
-	rm -f ~/.config/fish/config.fish
-
-uninstall-youtube-viewer:
-	rm -f ~/.config/youtube-viewer/youtube-viewer.conf
-
-uninstall-x:
-	rm -f ~/.xinitrc
-
-uninstall-conky:
-	rm -f ~/.conkyrc
-
-uninstall-scripts:
+uninstall-bin:
 	cd ~/.local/bin/ && \
 		rm -f volume
 
+install-i3blocks:
+	ln -f -s ${CWD}/home/config/i3blocks/ ~/.config/i3blocks
+
 uninstall-i3blocks:
-	rm -rf ~/.config/i3blocks/
+	rm -f ~/.config/i3blocks/
+
+install-ncmpcpp:
+	ln -f -s ${CWD}/home/ncmpcpp/ ~/.ncmpcpp
 
 uninstall-ncmpcpp:
-	rm -rf ~/.ncmpcpp/
+	rm -f ~/.ncmpcpp
+
+install-mpd:
+	ln -f -s ${CWD}/home/mpd/ ~/.mpd
 
 uninstall-mpd:
-	rm -rf ~/.mpd/
+	rm -f ~/.mpd
+
+install-neomutt:
+	ln -s ${CWD}/home/config/neomutt/ ~/.config/neomutt
+
+install-mc:
+	ln -f -s ${CWD}/home/config/mc/ ~/.config/mc
 
 uninstall-mc:
-	rm -rf ~/.config/mc/
+	rm -f ~/.config/mc
 
-uninstall-neomutt:
-	rm -rf ~/.config/neomutt/
+install-kernel:
+	cp usr/src/linux/config /usr/src/linux/.config

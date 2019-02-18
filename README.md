@@ -1,5 +1,9 @@
 # lillypad's dotfiles
 
+These are my configuration files which should allow you with little knowledge to rice your Linux desktop. This repository makes it easy to install individual configurations or all configurations. Also all configurations are symlinked to cloned repository after installation so creating your own fork or sending pull requests is a breeze.
+
+I seen a lots of `dotfiles` repositories but nobody seems to be using `Makefile`. Using `Makefile` makes it much easier to handle these kinds of operations instead of a `bootstrap` installer script.
+
 # Programs
 - [`emacs`](https://www.gnu.org/software/emacs/)
 - [`vifm`](https://vifm.info/)
@@ -20,6 +24,12 @@
 
 ![Screenshot](docs/img/screenshot_0.png)
 
+# Build
+
+```bash
+make build
+```
+
 # Install
 
 ```bash
@@ -31,15 +41,6 @@ make install
 # Uninstall
 ```
 make uninstall
-```
-
-# Pulling Your Configurations
-
-:notebook: You can pull your own configuations into this repository with one command.
-
-
-```bash
-make pull
 ```
 
 Enjoy :beers:
