@@ -96,6 +96,7 @@ install-fish:
 	ln -f -s ${CWD}/home/config/fish/config.fish ~/.config/fish/config.fish
 	curl -s -L https://get.oh-my.fish | fish || echo
 	fish -c "omf install lambda"
+	fish -c "set fish_greeting"
 
 uninstall-fish:
 	rm -f ~/.config/fish/config.fish
