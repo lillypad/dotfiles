@@ -7,6 +7,9 @@ mpd_crossfade_time = "5"
 # execute_on_song_change = "~/.ncmpcpp/scripts/album_art.sh"
 seek_time = 5
 mouse_support = yes
+mouse_list_scroll_whole_page = no
+discard_colors_if_item_is_selected = no
+display_bitrate = yes
 display_volume_level = yes
 clock_display_seconds = yes
 startup_screen = browser
@@ -20,22 +23,26 @@ header_visibility = "yes"
 statusbar_visibility = "yes"
 follow_now_playing_lyrics = "yes"
 ignore_leading_the = "yes"
-song_columns_list_format = "(10)[blue]{l} (30)[green]{a} (30)[magenta]{b} (50)[yellow]{t}"
+song_columns_list_format = "(10)[171]{l} (30)[171]{a} (30)[171]{b} (50)[171]{t}"
+
+current_item_prefix = $(1_99)
+current_item_suffix = $(end)
 
 # Color Config
 colors_enabled = "yes"
-main_window_color = "white"
-header_window_color = "cyan"
-volume_color = "red"
-progressbar_color = "cyan"
-statusbar_color = "white"
+empty_tag_color = "171"
+main_window_color = "171"
+header_window_color = "219"
+volume_color = "171"
+progressbar_color = "99"
+progressbar_elapsed_color = "171"
+statusbar_color = "219"
 color1 = "cyan"
 color2 = "cyan"
-active_column_color = "cyan"
-active_window_border = "blue"
-visualizer_color = "white,cyan,blue,green,yellow,red"
+active_column_color = "219"
+active_window_border = "219"
+visualizer_color = "225,217,213,207,204,201"
 visualizer_in_stereo = "yes"
 visualizer_fifo_path = "/tmp/mpd.fifo"
 visualizer_type = "spectrum"
 visualizer_look = "●▮"
-
