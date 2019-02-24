@@ -8,7 +8,7 @@ I seen a lots of `dotfiles` repositories but nobody seems to be using `Makefile`
 - [`emacs`](https://www.gnu.org/software/emacs/)
 - [`vifm`](https://vifm.info/)
 - [`youtube-viewer`](https://github.com/trizen/youtube-viewer)
-- [`i3`](https://i3wm.org/)
+- [`i3-gaps`](https://github.com/Airblader/i3)
 - [`i3blocks`](https://github.com/vivien/i3blocks)
 - [`mpd`](https://www.musicpd.org/)
 - [`ncmpcpp`](https://rybczak.net/ncmpcpp/)
@@ -19,6 +19,10 @@ I seen a lots of `dotfiles` repositories but nobody seems to be using `Makefile`
 - [`mpd`](https://www.musicpd.org/)
 - [`ncmpcpp`](https://rybczak.net/ncmpcpp/)
 - [`mc`](https://midnight-commander.org/)
+- [`transmission-daemon`](https://transmissionbt.com/)
+- [`mplayer`](http://www.mplayerhq.hu/design7/news.html)
+- [`st`](https://st.suckless.org/)
+- [`conky`](https://github.com/brndnmtthws/conky)
 
 # Screenshots
 
