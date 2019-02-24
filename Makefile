@@ -37,7 +37,8 @@ install: dirs \
 	install-conky \
 	install-neomutt \
 	install-mc \
-	install-mplayer
+	install-mplayer \
+	install-transmission-daemon
 
 uninstall: uninstall-st \
 	uninstall-fish \
@@ -51,7 +52,8 @@ uninstall: uninstall-st \
 	uninstall-conky \
 	uninstall-neomutt \
 	uninstall-mc \
-	uninstall-mplayer
+	uninstall-mplayer \
+	uninstall-transmission-daemon
 
 dirs:
 	mkdir -p ~/Music/ \
@@ -147,13 +149,13 @@ uninstall-mplayer:
 	rm -f ~/.mplayer
 
 install-conky:
-	ln -f -s ${CWD} home/conkyrc ~/.conkyrc
+	ln -f -s ${CWD}/home/conkyrc ~/.conkyrc
 
 uninstall-conky:
 	rm -f ~/.conkyrc
 
 install-transmission-daemon:
-	ln -f -s ${CWD} home/config/transmission-daemon/ ~/.config/transmission-daemon
+	ln -f -s ${CWD}/home/config/transmission-daemon/ ~/.config/transmission-daemon
 
 uninstall-transmission-daemon:
 	rm -f ~/.config/transmission-daemon
