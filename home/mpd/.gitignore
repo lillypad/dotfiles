@@ -1,2 +1,3 @@
 mpdstate
-mpd.log
+*.log
+*.db

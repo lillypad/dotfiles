@@ -36,7 +36,8 @@ install: dirs \
 	install-i3blocks \
 	install-conky \
 	install-neomutt \
-	install-mc
+	install-mc \
+	install-mplayer
 
 uninstall: uninstall-st \
 	uninstall-fish \
@@ -49,7 +50,8 @@ uninstall: uninstall-st \
 	uninstall-i3blocks \
 	uninstall-conky \
 	uninstall-neomutt \
-	uninstall-mc
+	uninstall-mc \
+	uninstall-mplayer
 
 dirs:
 	mkdir -p ~/Music/ \
@@ -137,6 +139,12 @@ install-youtube-viewer:
 
 uninstall-youtube-viewer:
 	rm -f ~/.config/youtube-viewer
+
+install-mplayer:
+	ln -s ${CWD}/home/mplayer/ ~/.mplayer
+
+uninstall-mplayer:
+	rm -f ~/.mplayer
 
 install-conky:
 	ln -f -s ${CWD} home/conkyrc ~/.conkyrc
