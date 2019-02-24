@@ -129,13 +129,13 @@ uninstall-emacs:
 	rm -rf ~/.emacs.d/
 
 install-i3:
-	ln -s ${CWD}/home/config/i3/ ~/.config/i3
+	ln -f -s ${CWD}/home/config/i3/ ~/.config/i3
 
 uninstall-i3:
 	rm -f ~/.config/i3
 
 install-youtube-viewer:
-	ln -s ${CWD}/home/config/youtube-viewer/ ~/.config/youtube-viewer
+	ln -f -s ${CWD}/home/config/youtube-viewer/ ~/.config/youtube-viewer
 
 uninstall-youtube-viewer:
 	rm -f ~/.config/youtube-viewer
@@ -151,6 +151,12 @@ install-conky:
 
 uninstall-conky:
 	rm -f ~/.conkyrc
+
+install-transmission-daemon:
+	ln -f -s ${CWD} home/config/transmission-daemon/ ~/.config/transmission-daemon
+
+uninstall-transmission-daemon:
+	rm -f ~/.config/transmission-daemon
 
 install-fonts:
 	git clone https://github.com/powerline/fonts.git /tmp/powerline-fonts/
@@ -186,7 +192,7 @@ uninstall-mpd:
 	rm -f ~/.mpd
 
 install-neomutt:
-	ln -s ${CWD}/home/config/neomutt/ ~/.config/neomutt
+	ln -f -s ${CWD}/home/config/neomutt/ ~/.config/neomutt
 
 install-mc:
 	ln -f -s ${CWD}/home/config/mc/ ~/.config/mc

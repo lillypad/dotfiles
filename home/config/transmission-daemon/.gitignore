@@ -1,0 +1,5 @@
+blocklists/*
+torrents/*
+resume/*
+*.torrent
+stats.json
