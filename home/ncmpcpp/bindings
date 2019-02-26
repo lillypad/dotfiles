@@ -10,9 +10,9 @@ def_key "j"
     scroll_down
 def_key "k"
     scroll_up
-def_key "ctrl-u"
+def_key "U"
     page_up
-def_key "ctrl-d"
+def_key "D"
     page_down
 def_key "h"
     previous_column
