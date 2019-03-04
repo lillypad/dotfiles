@@ -15,6 +15,7 @@ function mpctube
 end
 
 # Aliases
+alias ls="lsd"
 alias pcp="rsync --progress"
 alias service="rc-service"
 alias wifi-scan="sudo iwlist scan"

@@ -168,12 +168,12 @@ install-fonts:
 
 install-bin:
 	mkdir -p ~/.local/bin/
-	cd home/local/bin/ && \
-		cp volume ~/.local/bin/volume
+	cp -r home/local/bin/. ~/.local/bin/
 
 uninstall-bin:
 	cd ~/.local/bin/ && \
-		rm -f volume
+		rm -f volume &&
+		rm -f lsd
 
 install-i3blocks:
 	ln -f -s ${CWD}/home/config/i3blocks/ ~/.config/i3blocks
