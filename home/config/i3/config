@@ -30,7 +30,7 @@ bindsym $mod+Return exec --no-startup-id st
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+d exec --no-startup-id dmenu_run -nb '#000000' -sf '#000000' -sb '#ffffff' -nf '#ffffff'
+bindsym $mod+d exec --no-startup-id dmenu_run -nb '#000000' -sf '#000000' -sb '#9370db' -nf '#9370db'
 
 bindsym $mod+m exec --no-startup-id ~/.config/i3/scripts/mpc.fish
 
@@ -133,9 +133,9 @@ client.urgent           #000000 #000000 #000000 #000000
 bar {
 	status_command i3blocks
 	colors {
-		focused_workspace  #CECECE  #FFFFFF      #000000
-		active_workspace   #CECECE  #FFFFFF      #000000
-		inactive_workspace #CECECE  #000000      #FFFFFF
-		urgent_workspace   #CECECE  #FFFFFF      #000000
+		focused_workspace  #CECECE  #9370db      #000000
+		active_workspace   #CECECE  #9370db      #000000
+		inactive_workspace #CECECE  #000000      #9370db
+		urgent_workspace   #CECECE  #9370db      #000000
 	}
 }
