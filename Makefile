@@ -121,9 +121,6 @@ uninstall-vifm:
 install-emacs:
 	ln -f -s ${CWD}/home/spacemacs ~/.spacemacs
 	git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-	cd ~/.emacs.d/ && \
-		git checkout develop
-	cd ~
 	emacs --batch -l ~/.emacs.d/init.el
 
 uninstall-emacs:

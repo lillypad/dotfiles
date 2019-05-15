@@ -48,7 +48,12 @@ interval=1
 command=~/.config/i3blocks/blocks/powerline.sh '#9370db' black ~/.config/i3blocks/blocks/date.sh
 markup=pango
 
+[battery]
+interval=5
+command=~/.config/i3blocks/blocks/powerline.sh black '#9370db' ~/.config/i3blocks/blocks/bat.sh
+markup=pango
+
 [apps]
 interval=1
-command=~/.config/i3blocks/blocks/powerline.sh black '#9370db' "echo -n -e \xef\x84\xb5|"
+command=~/.config/i3blocks/blocks/powerline.sh '#9370db' black "echo -n -e \xef\x84\xb5|"
 markup=pango
