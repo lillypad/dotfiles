@@ -1,6 +1,6 @@
 set $mod Mod4
 
-font pango:DejaVu Sans Mono 10
+font pango:DejaVu Sans Mono 12
 
 set $gap_size 10
 set $gap_increment 5
