@@ -4,7 +4,7 @@ command=/usr/libexec/i3blocks/$BLOCK_NAME
 separator_block_width=0
 
 [vpn]
-interval=1
+interval=5
 command=~/.config/i3blocks/blocks/powerline.sh '#9370db' black ~/.config/i3blocks/blocks/vpn.sh
 markup=pango
 
@@ -14,32 +14,32 @@ command=~/.config/i3blocks/blocks/powerline.sh black '#9370db' ~/.config/i3block
 markup=pango
 
 [iface]
-interval=1
+interval=5
 command=~/.config/i3blocks/blocks/powerline.sh '#9370db' black ~/.config/i3blocks/blocks/ip_local.sh
 markup=pango
 
 [cpu_usage]
-interval=1
+interval=5
 command=~/.config/i3blocks/blocks/powerline.sh black '#9370db' ~/.config/i3blocks/blocks/cpu.sh
 markup=pango
 
 [memory]
-interval=1
+interval=5
 command=~/.config/i3blocks/blocks/powerline.sh '#9370db' black ~/.config/i3blocks/blocks/mem.sh
 markup=pango
 
 [disk]
-interval=1
+interval=5
 command=~/.config/i3blocks/blocks/powerline.sh black '#9370db' ~/.config/i3blocks/blocks/disk.sh
 markup=pango
 
 [volume]
-interval=1
+interval=5
 command=~/.config/i3blocks/blocks/powerline.sh '#9370db' black ~/.config/i3blocks/blocks/volume.sh
 markup=pango
 
 [music]
-interval=1
+interval=5
 command=~/.config/i3blocks/blocks/powerline.sh black '#9370db' ~/.config/i3blocks/blocks/now_playing.sh
 markup=pango
 
@@ -54,6 +54,6 @@ command=~/.config/i3blocks/blocks/powerline.sh black '#9370db' ~/.config/i3block
 markup=pango
 
 [apps]
-interval=1
+interval=5
 command=~/.config/i3blocks/blocks/powerline.sh '#9370db' black "echo -n -e \xef\x84\xb5|"
 markup=pango
