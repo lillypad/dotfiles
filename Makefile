@@ -158,10 +158,15 @@ uninstall-transmission-daemon:
 	rm -f ~/.config/transmission-daemon
 
 install-fonts:
-	git clone https://github.com/powerline/fonts.git /tmp/powerline-fonts/
-	cd /tmp/powerline-fonts/ && \
-		./install.sh
-	rm -rf /tmp/powerline-fonts/
+	mkdir -p /tmp/fonts/
+	wget -O /tmp/fonts/dejavu.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/DejaVuSansMono.zip
+	wget -O /tmp/fonts/sourcecode.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/SourceCodePro.zip
+	cd /tmp/fonts/ && \
+		unzip dejavu.zip && \
+		unzip sourcecode.zip && \
+		cp *.ttf ~/.fonts/
+	rm -rf /tmp/fonts/
+	fc-cache -fv
 
 install-bin:
 	mkdir -p ~/.local/bin/

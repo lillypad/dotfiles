@@ -1,8 +1,6 @@
-source /etc/profile.env
+bass source /etc/profile
 
 set GPG_TTY (tty)
-
-setxkbmap -layout us -option ctrl:nocaps
 
 function mpctube
    if not pidof mpd > /dev/null
