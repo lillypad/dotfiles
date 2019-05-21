@@ -12,6 +12,11 @@ function mpctube
    mpc -q play
 end
 
+function weechat-tmux
+	set -lx TERM tmux-256color
+	weechat
+end
+
 # Aliases
 alias ls="lsd"
 alias pcp="rsync --progress"
