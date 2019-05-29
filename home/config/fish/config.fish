@@ -12,6 +12,11 @@ function mpctube
    mpc -q play
 end
 
+function mplayer-youtube
+	set url (youtube-dl -f best -g $argv)
+	nohup mplayer (youtube-dl -f best -g  $url) & disown (jobs -p | head -2) && exit
+end
+
 function weechat-tmux
 	set -lx TERM tmux-256color
 	weechat

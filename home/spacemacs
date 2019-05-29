@@ -67,7 +67,7 @@
                          spacemacs-light)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Source Code Pro"
-                               ;; :size 13
+                               :size 16
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -172,9 +172,9 @@
        (magit-section-make-overlay (magit-section-start section)
                                    (magit-section-content section)
                                    'magit-section-highlight) t)))
-  (add-hook 'magit-section-highlight-hook 'magit-section-highlight-less)
-  (set-face-background 'line-number nil)
-  (set-face-foreground 'line-number "#404040"))
+  (add-hook 'magit-section-highlight-hook 'magit-section-highlight-less))
+  ;(set-face-background 'line-number nil)
+  ;(set-face-foreground 'line-number "#404040"))
 
 (defun on-after-init ()
   (unless (display-graphic-p (selected-frame))
