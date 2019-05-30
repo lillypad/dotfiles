@@ -95,6 +95,10 @@ uninstall-quicklisp:
 install-x:
 	cp home/xinitrc ~/.xinitrc
 
+install-rofi:
+	ln -f -s ${CWD}/usr/share/rofi/themes/solarized-darker.rasi \
+		/usr/share/rofi/themes/solarized-darker.rasi
+
 install-fish:
 	mkdir -p ~/.config/fish/
 	ln -f -s ${CWD}/home/config/fish/config.fish ~/.config/fish/config.fish
@@ -171,6 +175,9 @@ install-fonts:
 install-bin:
 	mkdir -p ~/.local/bin/
 	cp -r home/local/bin/. ~/.local/bin/
+
+uninstall-rofi:
+	rm -f /usr/share/rofi/solarized-darker.rasi
 
 uninstall-bin:
 	cd ~/.local/bin/ && \
