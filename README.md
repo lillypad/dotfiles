@@ -23,6 +23,32 @@ I seen a lots of `dotfiles` repositories but nobody seems to be using `Makefile`
 - [`mplayer`](http://www.mplayerhq.hu/design7/news.html)
 - [`st`](https://st.suckless.org/)
 - [`conky`](https://github.com/brndnmtthws/conky)
+- [`rofi`](https://github.com/davatorium/rofi)
+
+# Dependencies
+- [`tern`](https://ternjs.net/)
+- [`wget`](https://www.gnu.org/software/wget/)
+- [`python`](https://www.python.org/)
+- [`make`](http://man7.org/linux/man-pages/man1/make.1.html)
+- [`xorg`](https://www.x.org/wiki/)
+
+```bash
+sudo apt-get install -y wget \
+                        python \
+                        make \
+                        neomutt \
+                        mpd \
+                        mc \
+                        ncmpcpp \
+                        transmission \
+                        mplayer \
+                        conky \
+                        i3-gaps \
+                        youtube-viewer \
+                        emacs \
+                        tmux \
+                        rofi
+```
 
 # Screenshots
 
