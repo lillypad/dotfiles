@@ -23,6 +23,7 @@ function weechat-tmux
 end
 
 # Aliases
+alias vbox="VBoxManage"
 alias ls="lsd"
 alias pcp="rsync --progress"
 alias service="rc-service"
