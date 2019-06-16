@@ -1,3 +1,4 @@
+image/jpeg; feh %s 2>&1 > /dev/null & disown; nametemplate=%s.jpeg; needsterminal;
 image/png; feh %s 2>&1 > /dev/null & disown; nametemplate=%s.png; needsterminal;
 text/html; chromium %s 2>&1 > /dev/null & disown; nametemplate=%s.html; needsterminal;
 text/html; w3m -I %{charset} -T text/html; nametemplate=%s.html; copiousoutput;
