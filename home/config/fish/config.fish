@@ -23,6 +23,12 @@ function weechat-tmux
 end
 
 # Aliases
+alias tor-start="sudo /etc/init.d/tor start"
+alias tor-stop="sudo /etc/init.d/tor stop"
+alias shutdown="sudo shutdown -h now"
+alias reboot="sudo reboot"
+alias emerge="sudo emerge"
+alias layman="sudo layman"
 alias vbox="VBoxManage"
 alias ls="lsd"
 alias pcp="rsync --progress"

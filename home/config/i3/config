@@ -21,7 +21,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id volume up
 new_window 1pixel
 floating_modifier $mod
 
-exec --no-startup-id feh --bg-scale ~/.config/i3/wallpapers/gasai_yuno.png
+exec --no-startup-id feh --bg-scale ~/.config/i3/wallpapers/sniper.jpg
 
 exec --no-startup-id compton --vsync opengl --backend glx
 
