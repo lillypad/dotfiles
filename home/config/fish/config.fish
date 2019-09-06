@@ -22,9 +22,23 @@ function weechat-tmux
 	weechat
 end
 
+function service-cupsd
+	sudo /etc/init.d/cupsd $argv
+end
+
+function service-tor
+	sudo /etc/init.d/tor $argv
+end
+
+function service-docker
+	sudo /etc/init.d/docker $argv
+end
+
+function service-ofono
+	sudo /etc/init.d/ofono $argv
+end
+
 # Aliases
-alias tor-start="sudo /etc/init.d/tor start"
-alias tor-stop="sudo /etc/init.d/tor stop"
 alias shutdown="sudo shutdown -h now"
 alias reboot="sudo reboot"
 alias emerge="sudo emerge"
@@ -34,7 +48,7 @@ alias ls="lsd"
 alias pcp="rsync --progress"
 alias service="rc-service"
 alias wifi-scan="sudo iwlist scan"
-alias sync="sudo layman -S; sudo emerge --sync"
+alias sync="layman -S; emerge --sync"
 alias dmacs="emacs --daemon"
 alias xmacs="emacsclient -e '(kill-emacs)'"
 alias tmacs="emacs -nw"

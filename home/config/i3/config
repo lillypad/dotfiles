@@ -8,8 +8,8 @@ set $gap_increment 5
 gaps inner $gap_size
 gaps outer $gap_size
 
-bindsym Print --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
-bindsym Shift+Print exec "scrot /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+bindsym Print --release exec --no-startup-id "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+bindsym Shift+Print exec --no-startup-id "scrot /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 
 bindsym $mod+g gaps inner current plus $gap_increment; gaps outer current plus $gap_increment
 bindsym $mod+Shift+g gaps inner current minus $gap_increment; gaps outer current minus $gap_increment
